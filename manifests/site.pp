@@ -58,6 +58,7 @@ node default {
   include hub
   include nginx
 
+  include homebrew
   include iterm2::stable
   include macvim
   include cmake
@@ -67,27 +68,11 @@ node default {
   include tmux
   include xquartz
   include python
-
-  # Seil options
-  include seil::login_item
-
-  # Iterm settings
-  include iterm2::colors::solarized_dark
-
-  # OSX settings
-  include osx::global::disable_key_press_and_hold
-  include osx::universal_access::ctrl_mod_zoom
-  include osx::finder::unhide_library
-  include osx::dock::disable_dashboard
-  include osx::no_network_dsstores
-  include osx::global::expand_save_dialog
-  include osx::global::disable_autocorrect
-  include osx::global::tap_to_click
-  include osx::keyboard::capslock_to_control
-  include osx::finder::show_all_filename_extensions
-  include osx::finder::show_warning_before_changing_an_extension
-  include osx::disable_app_quarantine
-  include osx::sound::interface_sound_effects
+  include dropbox
+  include spotify
+  include vlc
+  include chrome
+  include wget
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -98,6 +83,7 @@ node default {
   nodejs::version { 'v0.6': }
   nodejs::version { 'v0.8': }
   nodejs::version { 'v0.10': }
+  nodejs::version { 'v0.12.4': }
 
   # default ruby versions
   ruby::version { '1.9.3': }
